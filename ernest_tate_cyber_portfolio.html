@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ernest Tate | Cybersecurity Portfolio</title>
+  <meta name="description" content="Ernest Tate - Cybersecurity student with federal compliance experience, hands-on cyber defense lab training, and an interest in mission-focused cybersecurity roles." />
+  <style>
+    :root{
+      --bg:#06111a;
+      --bg2:#0b1824;
+      --card:#0f2231;
+      --card2:#11293b;
+      --text:#e8f1f7;
+      --muted:#a8c0d0;
+      --line:#214158;
+      --accent:#55d6ff;
+      --accent2:#7af0c8;
+      --gold:#ffd166;
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
+      background:linear-gradient(180deg,var(--bg),#08141f 30%,var(--bg) 100%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    .container{width:min(1120px,92vw);margin:0 auto}
+    .nav{
+      position:sticky;top:0;z-index:20;
+      backdrop-filter:blur(10px);
+      background:rgba(6,17,26,.82);
+      border-bottom:1px solid rgba(33,65,88,.9)
+    }
+    .nav-inner{
+      display:flex;justify-content:space-between;align-items:center;
+      gap:20px;padding:14px 0;
+    }
+    .brand{font-weight:800;letter-spacing:.2px}
+    .brand small{display:block;color:var(--muted);font-weight:500}
+    .nav-links{display:flex;flex-wrap:wrap;gap:18px;font-size:.95rem}
+    .hero{
+      padding:72px 0 36px;
+      background:
+        radial-gradient(circle at top right, rgba(85,214,255,.12), transparent 24%),
+        radial-gradient(circle at top left, rgba(122,240,200,.08), transparent 20%);
+    }
+    .hero-grid{
+      display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center;
+    }
+    h1{font-size:clamp(2.2rem,5vw,4rem);line-height:1.06;margin:10px 0 14px}
+    h2{font-size:1.9rem;margin:0 0 12px}
+    h3{font-size:1.25rem;margin:0 0 10px}
+    .eyebrow{
+      color:var(--accent2);
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      font-size:.82rem;
+      font-weight:800;
+    }
+    .lead{font-size:1.08rem;color:var(--muted);max-width:760px}
+    .btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:24px}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:14px 18px;border-radius:16px;font-weight:700;
+      border:1px solid var(--line);box-shadow:var(--shadow);
+      transition:transform .12s ease,border-color .12s ease, background .12s ease;
+    }
+    .btn:hover{text-decoration:none;transform:translateY(-1px)}
+    .btn-primary{background:linear-gradient(135deg,var(--accent),#8be7ff);color:#072130;border-color:transparent}
+    .btn-secondary{background:rgba(15,34,49,.75);color:var(--text)}
+    .grid-stats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .card{
+      background:linear-gradient(180deg,var(--card),var(--card2));
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:22px;
+      box-shadow:var(--shadow);
+    }
+    .hero-card{padding:24px}
+    .stat-num{font-size:2rem;font-weight:800}
+    section{padding:34px 0}
+    .section-head{margin-bottom:18px}
+    .two-col{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    .three-col{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    ul{margin:10px 0 0 0;padding-left:18px}
+    li{margin:8px 0}
+    .tag-wrap{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .tag{
+      border:1px solid var(--line);
+      background:rgba(9,22,34,.8);
+      color:var(--muted);
+      padding:8px 12px;border-radius:999px;font-size:.9rem
+    }
+    .timeline-title{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+    .timeline-title .role{font-size:1.15rem;font-weight:800}
+    .muted{color:var(--muted)}
+    .progress-shell{
+      width:100%;height:14px;background:#081722;border-radius:999px;border:1px solid var(--line);overflow:hidden;margin-top:10px
+    }
+    .progress-bar{
+      width:72%;
+      height:100%;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      border-radius:999px;
+    }
+    .cta{
+      background:
+        radial-gradient(circle at right top, rgba(85,214,255,.16), transparent 26%),
+        linear-gradient(180deg,#0c1e2c,#0a1722);
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:28px;
+      box-shadow:var(--shadow);
+    }
+    .footer{
+      padding:28px 0 40px;color:var(--muted);font-size:.95rem
+    }
+    .small{font-size:.92rem}
+    .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .pill{
+      display:inline-block;
+      color:#052233;
+      background:linear-gradient(135deg,var(--gold),#ffe7a5);
+      padding:8px 12px;border-radius:999px;font-weight:800;font-size:.82rem
+    }
+    @media (max-width: 900px){
+      .hero-grid,.two-col,.three-col,.contact-grid{grid-template-columns:1fr}
+      .nav-inner{align-items:flex-start;flex-direction:column}
+      .timeline-title{flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        Ernest Tate
+        <small>Cybersecurity Portfolio | Federal Mission Focus</small>
+      </div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#securityplus">Security+</a>
+        <a href="#hire">Hire Me</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Cybersecurity • Compliance • Critical Infrastructure</div>
+        <h1>Ernest Tate</h1>
+        <p class="lead">
+          Cybersecurity student with federal compliance experience, hands-on cyber defense lab training, and growing technical skills in vulnerability assessment, log analysis, incident response, and infrastructure review. Focused on mission-driven roles supporting security, resilience, and operational excellence.
+        </p>
+        <div class="tag-wrap">
+          <span class="tag">Federal Environment Experience</span>
+          <span class="tag">Cyber Defense Labs</span>
+          <span class="tag">NIST RMF Familiarity</span>
+          <span class="tag">Security+ In Progress</span>
+        </div>
+        <div class="btns">
+          <a class="btn btn-primary" href="#hire">Hire Me</a>
+          <a class="btn btn-secondary" href="resume-ernest-tate.pdf" download>Download Resume</a>
+          <a class="btn btn-secondary" href="https://www.linkedin.com/in/ernest-tate-363b18a5" target="_blank" rel="noreferrer">View LinkedIn</a>
+        </div>
+      </div>
+
+      <div class="grid-stats">
+        <div class="card hero-card">
+          <div class="muted small">Current Focus</div>
+          <div class="stat-num">May 2026</div>
+          <div>Cybersecurity Certificate completion target</div>
+        </div>
+        <div class="card hero-card">
+          <div class="muted small">Federal Experience</div>
+          <div class="stat-num">10+ Years</div>
+          <div>Compliance-driven operations and documentation</div>
+        </div>
+        <div class="card hero-card">
+          <div class="muted small">GPA</div>
+          <div class="stat-num">4.0</div>
+          <div>Cybersecurity Certificate program</div>
+        </div>
+        <div class="card hero-card">
+          <div class="muted small">Mission Interest</div>
+          <div class="stat-num">Cyber</div>
+          <div>Information assurance, risk, and infrastructure protection</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="about">
+      <div class="container">
+        <div class="card">
+          <div class="section-head">
+            <div class="eyebrow">About</div>
+            <h2>Professional Profile</h2>
+          </div>
+          <p class="lead" style="max-width:none">
+            My background combines federal operational discipline with hands-on cybersecurity learning. At the Department of Veterans Affairs, I supported regulated programs requiring documentation precision, stakeholder coordination, and risk awareness. Through coursework, labs, and technical projects, I have built beginner-to-intermediate exposure to vulnerability assessment, network diagnostics, system hardening, structured reporting, and compliance-oriented security thinking.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="container two-col">
+        <div class="card">
+          <div class="section-head">
+            <div class="eyebrow">Experience</div>
+            <h2>Work Experience</h2>
+          </div>
+          <div class="timeline-title">
+            <div>
+              <div class="role">Clinical Research Coordinator (GS-0601-09)</div>
+              <div class="muted">Department of Veterans Affairs — Atlanta, GA</div>
+            </div>
+            <div class="pill">2015–2025</div>
+          </div>
+          <ul>
+            <li>Supported regulatory compliance reviews and operational risk mitigation in federally governed programs</li>
+            <li>Maintained audit-ready documentation aligned with federal policy and quality assurance standards</li>
+            <li>Analyzed structured datasets to identify inconsistencies and improve operational performance</li>
+            <li>Coordinated with multidisciplinary stakeholders to ensure adherence to procedures and program requirements</li>
+            <li>Contributed to workflow improvements that enhanced documentation accuracy and response timelines</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="section-head">
+            <div class="eyebrow">Education</div>
+            <h2>Academic Background</h2>
+          </div>
+          <h3>Georgia Gwinnett College — Lawrenceville, GA</h3>
+          <ul>
+            <li>Cybersecurity Certificate — Anticipated May 2026 | GPA: 4.0</li>
+            <li>Bachelor of Arts in Psychology — December 2021 | GPA: 3.5</li>
+          </ul>
+
+          <h3 style="margin-top:22px">Relevant Coursework</h3>
+          <ul>
+            <li>Network Security</li>
+            <li>Operating Systems Security</li>
+            <li>Cyber Defense & Incident Response</li>
+            <li>Risk Management & Compliance</li>
+            <li>Cryptography Fundamentals</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Projects</div>
+          <h2>Cybersecurity Projects & Mission Branding</h2>
+        </div>
+        <div class="three-col">
+          <div class="card">
+            <h3>Cyber Defense Simulation Labs</h3>
+            <div class="muted">TestOut Security Pro / Cyber Defense Pro</div>
+            <ul>
+              <li>Conducted vulnerability scanning exercises to identify simulated enterprise system weaknesses</li>
+              <li>Monitored security logs to detect anomalous activity and support incident response escalation</li>
+              <li>Configured firewall rules, VPN connectivity, and intrusion detection system policies</li>
+              <li>Implemented authentication controls and system hardening techniques across Windows and Linux environments</li>
+              <li>Evaluated cybersecurity risks and documented mitigation recommendations in structured reports</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Infrastructure Analysis Experience</h3>
+            <div class="muted">Network discovery, diagnostics, and reporting</div>
+            <ul>
+              <li>Conducted network discovery using Nmap and Angry IP Scanner</li>
+              <li>Performed DNS diagnostics and infrastructure evaluation using MXToolbox</li>
+              <li>Applied CVSS methodology to prioritize remediation efforts</li>
+              <li>Reviewed simulated event logs to identify indicators of compromise</li>
+              <li>Developed structured cybersecurity findings reports with mitigation recommendations</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>Federal Mission Readiness</h3>
+            <div class="muted">Compliance and security culture support</div>
+            <ul>
+              <li>Developed familiarity with NIST Risk Management Framework and federal compliance concepts</li>
+              <li>Studied security protocols including SSL/TLS, Kerberos, PKI, and IPsec</li>
+              <li>Learned malware defense strategies and denial-of-service mitigation principles</li>
+              <li>Explored operating system security practices for Windows and Linux systems</li>
+              <li>Focused on mission-oriented cybersecurity, resilience, and information assurance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container two-col">
+        <div class="card">
+          <div class="section-head">
+            <div class="eyebrow">Skills</div>
+            <h2>Technical Skills</h2>
+          </div>
+          <ul>
+            <li>Microsoft Office (Excel, Outlook, Word)</li>
+            <li>Nmap</li>
+            <li>Angry IP Scanner</li>
+            <li>MXToolbox</li>
+            <li>Windows security fundamentals</li>
+            <li>Linux security fundamentals</li>
+            <li>Firewall and VPN configuration exposure</li>
+            <li>Intrusion detection systems (IDS) exposure</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="section-head">
+            <div class="eyebrow">Certifications</div>
+            <h2>Cybersecurity Credentials</h2>
+          </div>
+          <ul>
+            <li>Certiport IT Specialist — Networking</li>
+            <li>Certiport IT Specialist — Cybersecurity</li>
+            <li>CompTIA Security+ — In Progress</li>
+            <li>Vulnerability Assessment — Beginner</li>
+            <li>Log Analysis — Beginner</li>
+            <li>Risk Awareness — Beginner</li>
+            <li>Structured Security Reporting</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="securityplus">
+      <div class="container">
+        <div class="card">
+          <div class="section-head">
+            <div class="eyebrow">Certification Progress</div>
+            <h2>CompTIA Security+ Progress Tracker</h2>
+          </div>
+          <p class="muted">Estimated current progress toward exam readiness</p>
+          <div class="progress-shell" aria-label="Security Plus progress bar">
+            <div class="progress-bar"></div>
+          </div>
+          <p style="margin-top:10px"><strong>72%</strong> complete — continuing preparation through coursework, labs, and exam study</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="hire">
+      <div class="container">
+        <div class="cta">
+          <div class="eyebrow">Hire Me</div>
+          <h2>Looking for a motivated entry-level cybersecurity candidate?</h2>
+          <p class="lead" style="max-width:none">
+            I bring federal compliance experience, strong documentation discipline, stakeholder coordination, and growing technical cybersecurity skills. I am seeking opportunities where I can contribute, continue learning, and support teams focused on security, resilience, and mission success.
+          </p>
+          <div class="btns">
+            <a class="btn btn-primary" href="mailto:Earnesttate2209@gmail.com?subject=Cybersecurity Opportunity for Ernest Tate">Contact Ernest</a>
+            <a class="btn btn-secondary" href="resume-ernest-tate.pdf" download>Download Resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div class="eyebrow">Contact</div>
+          <h2>Let’s Connect</h2>
+        </div>
+        <div class="contact-grid">
+          <div class="card">
+            <h3>Email</h3>
+            <div><a href="mailto:Earnesttate2209@gmail.com">Earnesttate2209@gmail.com</a></div>
+          </div>
+          <div class="card">
+            <h3>Phone</h3>
+            <div><a href="tel:7069515679">706-951-5679</a></div>
+          </div>
+          <div class="card">
+            <h3>LinkedIn</h3>
+            <div><a href="https://www.linkedin.com/in/ernest-tate-363b18a5" target="_blank" rel="noreferrer">linkedin.com/in/ernest-tate-363b18a5</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      Ernest Tate | Cybersecurity Portfolio | Built as a single-file HTML site for easy upload to GitHub Pages, Netlify, or any web host
+    </div>
+  </footer>
+</body>
+</html>
